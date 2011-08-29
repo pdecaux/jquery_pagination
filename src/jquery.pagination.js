@@ -217,7 +217,14 @@
 				}
 				return false;
 		});
-		
+		containers.bind('lastPage', {numPages:np}, function(evt){
+				selectPage(evt.data.numPages - 1);
+				return false;
+		});	
+		containers.bind('firstPage', {numPages:np}, function(evt){
+				selectPage(0);
+				return false;
+		});			
 		// When all initialisation is done, draw the links
 		links = renderer.getLinks(current_page, paginationClickHandler);
 		containers.empty();
